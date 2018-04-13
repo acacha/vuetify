@@ -31,7 +31,10 @@
                             label="Password"
                             v-model="password"
                             :rules="passwordRules"
-                            hint="Com a mínim 6 caràcters"
+                            hint="At least 6 characters"
+                            :error="errors['email']"
+                            :error-messages="errors['email']"
+                            required
                             min="6"
                             type="password"
                             required

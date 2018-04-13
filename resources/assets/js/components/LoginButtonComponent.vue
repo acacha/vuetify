@@ -17,6 +17,8 @@
                             label="E-mail"
                             v-model="email"
                             :rules="emailRules"
+                            :error="errors['email']"
+                            :error-messages="errors['email']"
                             required
                     ></v-text-field>
                     <v-text-field
@@ -82,6 +84,7 @@
     mixins: [withSnackbar],
     data () {
       return {
+        errors: [],
         internalAction: this.action,
         email: '',
         emailRules: [
@@ -132,14 +135,16 @@
             this.showLogin = false
             window.location = '/home'
           }).catch(error => {
+            console.log('HEY:')
+            console.log(error.response.data)
             if (error.response && error.response.status === 422) {
               this.showError({
-                message: 'Invalid data'
+                message: 'Invalid data',
               })
             } else {
               this.showError(error)
             }
-            this.loginErrors = error.response.data.errors
+            this.errors = error.response.data.errors
           }).then(() => {
             this.loginLoading = false
           })

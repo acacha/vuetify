@@ -33,7 +33,7 @@ class ForgotPasswordController extends Controller
     public function showLinkRequestForm()
     {
         return view('welcome', [
-            'action' => 'request_new_password'
+            'action' => 'reset_password'
         ]);
     }
 
