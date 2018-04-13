@@ -23,11 +23,11 @@
         'snackbarColor',
         'snackbarText',
         'snackbarSubtext',
-        'snackbarTimeout',
+        'snackbarTimeout'
       ])
     },
     methods: {
-      close() {
+      close () {
         this.$store.commit(mutations.SET_SNACKBAR_SHOW, false)
       }
     }

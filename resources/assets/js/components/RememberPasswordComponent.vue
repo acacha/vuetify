@@ -96,11 +96,11 @@
     computed: {
       showRememberPassword: {
         get () {
-          if (this.internalAction && this.internalAction === 'reset_password') return true
+          if (this.internalAction && this.internalAction === 'request_new_password') return true
           return false
         },
         set (value) {
-          if (value) this.internalAction = 'reset_password'
+          if (value) this.internalAction = 'request_new_password'
           else this.internalAction = null
         }
       }

@@ -157,7 +157,7 @@
             } else {
               this.showError(error)
             }
-            this.registerErrors = error.response.data.errors
+            this.errors = error.response.data.errors
           }).then(() => {
             this.registerLoading = false
           })

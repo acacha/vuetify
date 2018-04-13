@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('login-button', require('./components/LoginButtonComponent.vue'));
 Vue.component('register-button', require('./components/RegisterButtonComponent.vue'));
 Vue.component('remember-password', require('./components/RememberPasswordComponent.vue'));
+Vue.component('reset-password', require('./components/ResetPasswordComponent.vue'));
 Vue.component('snackbar', require('./components/SnackBarComponent.vue'));
 Vue.component('gravatar', require('./components/GravatarComponent.vue'));
 
@@ -118,7 +119,7 @@ const app = new Vue({
     changePassword () {
       this.changingPassword = true
       this.$store.dispatch(actions.REMEMBER_PASSWORD, this.user.email).then(response => {
-        this.showMessage(`Se us ha enviat un email per tal de modificar la paraula de pas`)
+        this.showMessage(`Email sent to change password`)
       }).catch(error => {
         console.dir(error)
         this.showError(error)
